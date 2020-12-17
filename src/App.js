@@ -6,7 +6,7 @@ import { Component } from 'react';
 import { func } from 'prop-types';
 
 
-function getAPIInfo() {
+/*function getAPIInfo() {
   let apiURL = "https://my-json-server.typicode.com/tdmichaelis/json-api/products";
   let storeApi = new XMLHttpRequest();
   storeApi.open('GET', apiURL, true);
@@ -17,12 +17,17 @@ function getAPIInfo() {
       return storeObj;
     }
   )
-}
+} */
+const getAPIInfo = fetch(
+  "https://my-json-server.typicode.com/tdmichaelis/json-api/products"
+).then((response) => response.json());
+
+
 
 class App extends Component{
   render () {
-    let data = getAPIInfo();
-    return(<ProductsPage data = {data}/>)
+    let data = getAPIInfo.then((response) => response);
+    return(<ProductsPage data={data}/>)
   }
 }
 
