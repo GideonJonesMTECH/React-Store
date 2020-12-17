@@ -16,7 +16,8 @@ storeApi.onload = function () {
 
 
 function setStartup(storeObj) {
-
+  // <ProductsPage data = {storeObj} />
+  console.log(storeObj)
 }
 
 
