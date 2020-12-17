@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import ProductsPage from "./ProductsPage"
+import { render } from 'react-dom';
+import { Component } from 'react';
 
 let apiURL = "https://my-json-server.typicode.com/tdmichaelis/json-api/products";
 let storeApi = new XMLHttpRequest();
@@ -16,20 +19,23 @@ storeApi.onload = function () {
 
 
 function setStartup(storeObj) {
-  // <ProductsPage data = {storeObj} />
-  console.log(storeObj)
+  console.log(storeObj);
+  Full.render(<ProductsPage/>)
+}
+
+class Full extends Component {
+  render(data) {
+    return(
+      data
+    )
+  }
 }
 
 
 
-
-function App() {
+function App(){
   return (
-    <div>
-      <h1>
-        E-Commerce Store
-      </h1>
-    </div>
+    <Full/>
   );
 }
 
