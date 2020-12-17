@@ -47,4 +47,3 @@ https://my-json-server.typicode.com/tdmichaelis/typicode/categories
 ## BONUS:
 
 Include a mock login page that takes a username and password. Store the username in the store and use it in the app somewhere, header, cart page, or anywhere you might need it.
-# React-Store
