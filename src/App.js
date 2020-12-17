@@ -7,21 +7,28 @@ storeApi.open('GET', apiURL, true);
 storeApi.send();
 storeApi.onload = function () {
  if (storeApi.status === 200) {
-  let storeApi = JSON.parse(storeApi.responseText).courses;
-  setStartup(storeApi);
+  let storeObj = JSON.parse(storeApi.responseText);
+  setStartup(storeObj);
  } else {
   return;
  }
 }
 
-function setStartup(storeApi) {
-  
+
+function setStartup(storeObj) {
+
 }
+
+
 
 
 function App() {
   return (
-    <div> <h1>E-Commerce Store</h1></div>
+    <div>
+      <h1>
+        E-Commerce Store
+      </h1>
+    </div>
   );
 }
 
