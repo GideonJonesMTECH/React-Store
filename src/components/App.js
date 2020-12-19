@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import ProductsPage from "./ProductsPage"
 import { Component } from 'react';
 
