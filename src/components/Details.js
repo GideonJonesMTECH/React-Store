@@ -1,7 +1,8 @@
-import {Component} from 'react'
+import { Component } from 'react'
 
 export class ProductDetails extends Component{
     render () {
+        console.log(this.props)
       return(
           <div>
               <p>{this.props.category}</p>

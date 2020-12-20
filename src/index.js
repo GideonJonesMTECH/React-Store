@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Root } from "./components/Root";
 
-import "./index.css";
+import "./index.css"
 
 class App extends Component {
   render() {

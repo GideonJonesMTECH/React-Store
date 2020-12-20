@@ -7,7 +7,6 @@ import { Cart } from "./Cart";
 //styling
 import "../App.css";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export class Header extends Component {
   render() {
