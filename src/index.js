@@ -14,7 +14,6 @@ class App extends Component {
         <div>
           <div className="ui menu">
             <Root />
-            <div className="right menu"></div>
           </div>
         </div>
       </Router>

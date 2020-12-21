@@ -13,9 +13,9 @@ export class Header extends Component {
     return (
       <div>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">Tight-wad Haven</Navbar.Brand>
+          <Navbar.Brand href="#home">E-commerce Store</Navbar.Brand>
           <Nav className="mr-auto">
-            <Link to="/ProductPage" className="item">
+            <Link to="/" className="item">
               Home 
             </Link>
             <Link to="/Cart" className="item">
@@ -28,7 +28,7 @@ export class Header extends Component {
           </Form>
         </Navbar>
         <Switch>
-          <Route path="/ProductPage" component={ProductsPage} />
+          <Route exact path="/" component={ProductsPage} />
           <Route path="/Cart" component={Cart} />
         </Switch>
       </div>

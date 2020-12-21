@@ -14,9 +14,6 @@ export class Root extends Component {
             <Header />
           </div>
         </div>
-        <div className="row">
-          <div className="col col-xs-offset-1">{this.props.children}</div>
-        </div>
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import { ProductDetails } from "./Details";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
 export class Product extends Component {
   addProductToCart(id) {
     console.log(id);
@@ -8,15 +11,18 @@ export class Product extends Component {
 
   render() {
     return (
-      <div className="product">
+      <div className="product w-25 p-3">
         <Link to={`/ProductDetails/${this.props.title}`} className="item">
-          <img
+          <img style={{
+            resizeMode: "cover",
+            height: 200,
+            width: 200
+          }}
             className="productImg"
             src={this.props.img}
             alt={this.props.title}
           />
         </Link>
-
         <h4 className="productTitle">{this.props.title}</h4>
         <span className="productRating">{this.props.rating} / 5</span>
         <h5 className="productPrice">{this.props.price}</h5>
@@ -26,9 +32,10 @@ export class Product extends Component {
         </button>
         <Switch>
           <Route
-            exact path={`"/ProductDetails/${this.props.title}"`}
-            render={ (props) => 
+            path={`/ProductDetails/${this.props.title}`}
+            render={(props) => (
               <ProductDetails
+                {...props}
                 id={this.props.id}
                 img={this.props.img}
                 title={this.props.title}
@@ -36,9 +43,9 @@ export class Product extends Component {
                 rating={this.props.rating}
                 description={this.props.description}
                 category={this.props.category}
-                {...props}
+                
               />
-            }
+            )}
           />
         </Switch>
       </div>
