@@ -1,19 +1,28 @@
-import { Component } from 'react'
+import { Component } from "react";
+import { useParams } from "react-router-dom";
 
-export class ProductDetails extends Component{
-    render () {
-        console.log(this.props)
-      return(
-          <div>
-              <p>{this.props.category}</p>
-              <h1>{this.props.title}</h1>
-              <img src={this.props.img} alt = {this.props.title} width="500" height="600"/>
-              <div>
-                  <p>{this.props.description}</p>
-              </div>
-              <p>{this.props.rating}</p>
-              <p>{this.props.price}</p>
-          </div>
-      )
-    }
-  }
+export function ProductDetails(props) {
+    
+    let { title } = useParams();
+    console.log(title)
+    
+
+  return (
+    <div>
+      <p>{props.category}</p>
+      <h1>{title}</h1>
+      <img
+        src={props.img}
+        alt={props.title}
+        width="500"
+        height="600"
+      />
+      <div>
+        <p>{props.description}</p>
+      </div>
+      <p>{props.rating}</p>
+      <p>{props.price}</p> 
+    </div> 
+   
+  );
+}

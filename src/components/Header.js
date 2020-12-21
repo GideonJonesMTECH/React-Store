@@ -1,9 +1,7 @@
 //node modules
 import { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
-//components
-import { ProductsPage } from "./ProductsPage";
-import { Cart } from "./Cart";
+
 //styling
 import "../App.css";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
@@ -37,10 +35,7 @@ export class Header extends Component {
             <Button variant="outline-info">Search</Button>
           </Form>
         </Navbar>
-        <Switch>
-          <Route exact path="/" component={ProductsPage} />
-          <Route path="/Cart" component={Cart} />
-        </Switch>
+        
       </div>
     );
   }

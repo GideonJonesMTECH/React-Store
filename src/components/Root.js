@@ -1,5 +1,10 @@
 import React from "react";
 import { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import { ProductDetails } from "./Details"
+
+import { ProductsPage } from "./ProductsPage";
+import { Cart } from "./Cart";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,6 +18,11 @@ export class Root extends Component {
         <div className="row">
           <div className="col col-xs-offset-1">
             <Header />
+            <Switch>
+              <Route exact path="/" component={ProductsPage} />
+              <Route path="/Cart" component={Cart} />
+              <Route path="/ProductDetails/:title" component={ProductDetails} />
+            </Switch>
             <Footer />
           </div>
         </div>

@@ -50,7 +50,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -61,7 +61,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -72,7 +72,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -83,7 +83,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -94,7 +94,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -105,7 +105,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -116,7 +116,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -127,7 +127,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={
@@ -138,7 +138,7 @@ export class ProductsPage extends Component {
           category={"refrigerator"}
           description={"It's a dummy"}
         />
-                <Product
+        <Product
           id={0}
           title={"DummyProduct"}
           img={

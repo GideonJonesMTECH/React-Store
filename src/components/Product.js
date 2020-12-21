@@ -43,7 +43,6 @@ export class Product extends Component {
                 rating={this.props.rating}
                 description={this.props.description}
                 category={this.props.category}
-                
               />
             )}
           />
