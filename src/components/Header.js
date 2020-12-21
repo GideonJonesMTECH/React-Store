@@ -12,14 +12,24 @@ export class Header extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="light" variant="light">
           <Navbar.Brand href="#home">E-commerce Store</Navbar.Brand>
           <Nav className="mr-auto">
-            <Link to="/" className="item">
-              Home 
+            <Link to="/" className="item col-10">
+              Home
             </Link>
-            <Link to="/Cart" className="item">
-              Cart
+            <Link to="/Cart" className="item col-2">
+              <div>
+                <img
+                  style={{
+                    resizeMode: "cover",
+                    height: 30,
+                    width: 30,
+                  }}
+                  className="cart"
+                  src={"https://cdn0.iconfinder.com/data/icons/ecommerce-57/100/Ecommerce_RTE-03-512.png"}
+                />
+              </div>
             </Link>
           </Nav>
           <Form inline>
