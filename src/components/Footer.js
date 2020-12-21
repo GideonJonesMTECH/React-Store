@@ -12,7 +12,7 @@ export class Footer extends Component {
  render() {
   return (
    <div>
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="light" variant="light">
      <Navbar.Brand href="#home">E-commerce Store</Navbar.Brand>
      <Button onClick={this.toTop()} variant="outline-info">Back To Top</Button>
     </Navbar>
