@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Root } from "./components/Root";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { reducer } from "Reducer.js";
+import { reducer } from "./Store/Reducer";
 
 import "./index.css"
 
