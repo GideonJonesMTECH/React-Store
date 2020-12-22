@@ -1,41 +1,13 @@
 import { Component } from "react";
 import { Product } from "./Product";
-
-function extractDataFromCall(data) {
-  let arr = [];
-  data.forEach((element) => arr.push(element));
-
-  return arr;
-}
+import {connect} from 'react-redux';
+import { products } from "../index";
 
 export class ProductsPage extends Component {
-  listOfProducts = [];
-
-  componentDidMount() {
-    const getAPIInfo = async (url) => {
-      const apiRequest = await fetch(url);
-      const products = await apiRequest.json();
-      let data = await extractDataFromCall(products);
-      return data;
-    };
-
-    getAPIInfo(
-      "https://my-json-server.typicode.com/tdmichaelis/json-api/products"
-    ).then((response) => {
-      this.listOfProducts = response;
-      this.forceUpdate();
-    });
-  }
-
-  populateStore(data) {
-    console.log("Went into function!");
-  }
+  listOfProducts = []
 
   render() {
     console.log(this.listOfProducts);
-    if (this.listOfProducts.length > 1) {
-      this.populateStore(this.listOfProducts);
-    }
     return (
       <div>
         <h1>Here's the Product Page</h1>
@@ -54,3 +26,17 @@ export class ProductsPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return{
+    products: state.products
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    OnLoad: () => dispatch({type: 'LOAD'})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);
