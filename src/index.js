@@ -5,34 +5,51 @@ import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Root } from "./components/Root";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+
 import { reducer } from "./Store/Reducer";
+import { createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk'
 
 import "./index.css"
 
-export let products = [];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-function extractDataFromCall(data) {
- let arr = [];
- data.forEach((element) => arr.push(element));
- return arr;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+const extractDataFromCall = (data) => {
+  let arr = [];
+  data.forEach((element) => arr.push(element));
+  return arr;
+ }
+ 
+ const getAPIInfo = async (url) => {
+  const apiRequest = await fetch(url);
+  const products = await apiRequest.json();
+  let data = await extractDataFromCall(products);
+  return data;
+ };
+
+const fetchPostsSuccess = posts => ({
+  type: 'FETCH_POSTS_SUCCESS',
+  products: posts 
+})
+
+export const fetchPosts =  () => {
+  return async dispatch => {
+      try {
+          let apiCall = await getAPIInfo(
+            "https://my-json-server.typicode.com/tdmichaelis/json-api/products"
+           )
+          dispatch(fetchPostsSuccess(apiCall)) 
+      }
+      catch(e){
+          console.log(e)
+      }
+  }
 }
 
-const getAPIInfo = async (url) => {
- const apiRequest = await fetch(url);
- const products = await apiRequest.json();
- let data = await extractDataFromCall(products);
- return data;
-};
+store.dispatch(fetchPosts()) 
 
-getAPIInfo(
- "https://my-json-server.typicode.com/tdmichaelis/json-api/products"
-).then((response) => {
- products = response;
-});
-
-
-const store = createStore(reducer);
 class App extends Component {
   render() {
     return (

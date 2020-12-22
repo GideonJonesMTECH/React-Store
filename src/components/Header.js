@@ -13,7 +13,7 @@ export class Header extends Component {
         <Navbar bg="light" variant="light">
           <Navbar.Brand href="#home">E-commerce Store</Navbar.Brand>
           <Nav className="mr-auto">
-            <Link to="/" className="item col-10">
+            <Link to="/home" className="item col-10">
               Home
             </Link>
             <Link to="/Cart" className="item col-2">
