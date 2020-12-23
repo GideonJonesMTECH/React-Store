@@ -22,7 +22,6 @@ function ProductsPage(props) {
 }
 
 const mapStatetoProps = (state) => {
-  console.log(state)
   return { products: state.products };
 };
 

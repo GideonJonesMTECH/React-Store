@@ -12,7 +12,7 @@ export class Product extends Component {
   render() {
     return (
       <div className="product w-25 p-3">
-        <Link to={`/ProductDetails/${this.props.title}`} className="item">
+        <Link to={`/ProductDetails/${this.props.id}`} className="item">
           <img style={{
             resizeMode: "cover",
             height: 200,

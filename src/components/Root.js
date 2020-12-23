@@ -22,7 +22,7 @@ export class Root extends Component {
             <Switch>
               <Route exact path="/home" component={ProductsPage}/>
               <Route path="/Cart" component={Cart} />
-              <Route path="/ProductDetails/:title" component={ProductDetails} />
+              <Route path="/ProductDetails/:id" component={ProductDetails} />
             </Switch>
             <Footer />
           </div>

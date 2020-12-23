@@ -1,15 +1,14 @@
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 
 export function ProductDetails(props) {
     
-    let { title } = useParams();
-    console.log(title)
-    
+    let { id } = useParams();
 
   return (
     <div>
       <p>{props.category}</p>
-      <h1>{title}</h1>
+      <h1>{id}</h1>
       <img
         src={props.img}
         alt={props.title}
@@ -25,3 +24,9 @@ export function ProductDetails(props) {
    
   );
 }
+
+const mapStatetoProps = (state) => {
+  return { products: state.products };
+};
+
+export default connect(mapStatetoProps)(ProductDetails);

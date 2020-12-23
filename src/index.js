@@ -30,7 +30,7 @@ const extractDataFromCall = (data) => {
  };
 
 const fetchPostsSuccess = posts => ({
-  type: 'FETCH_POSTS_SUCCESS',
+  type: 'FETCH_POST_SUCCESS',
   products: posts 
 })
 
