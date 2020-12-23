@@ -11,21 +11,24 @@ export class Product extends Component {
 
   render() {
     return (
-      <div className="product w-25 p-3">
+      <div className="product w-25 p-3" style={{textAlign:"center", margin: 20}}>
         <Link to={`/ProductDetails/${this.props.id}`} className="item">
-          <img style={{
-            resizeMode: "cover",
-            height: 200,
-            width: 200
-          }}
-            className="productImg"
-            src={this.props.img}
-            alt={this.props.title}
-          />
+          <div style={{height:200, width:200, textAlign:"center"}}>
+            <img style={{
+              resizeMode: "contain",
+              height: "100%",
+              width: "auto",
+              overflow: "hidden",
+            }}
+              className="productImg"
+              src={this.props.img}
+              alt={this.props.title}
+            />
+          </div>
         </Link>
         <h4 className="productTitle">{this.props.title}</h4>
         <span className="productRating">{this.props.rating} / 5</span>
-        <h5 className="productPrice">{this.props.price}</h5>
+        <h5 className="productPrice">${this.props.price}</h5>
         <span></span>
         <button onClick={this.addProductToCart(this.props.id)}>
           Add to Cart
