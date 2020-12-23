@@ -5,7 +5,6 @@ function ProductDetails(props) {
     let { id } = useParams();
     const product = props.products.filter((product) => product.id == id);
     const productInfo = product[0];
-    console.log(productInfo);
   return (
     <div>
       <p>{productInfo.category}</p>

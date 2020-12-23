@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export class Product extends Component {
   addProductToCart(id) {
-    console.log(id);
+    console.log(id + " has been added to cart.");
   }
 
   render() {
