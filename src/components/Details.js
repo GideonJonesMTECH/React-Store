@@ -1,25 +1,26 @@
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
-export function ProductDetails(props) {
-    
+function ProductDetails(props) {
     let { id } = useParams();
-
+    const product = props.products.filter((product) => product.id == id);
+    const productInfo = product[0];
+    console.log(productInfo);
   return (
     <div>
-      <p>{props.category}</p>
-      <h1>{id}</h1>
+      <p>{productInfo.category}</p>
+      <h1>{productInfo.title}</h1>
       <img
-        src={props.img}
-        alt={props.title}
+        src={productInfo.img}
+        alt={productInfo.title}
         width="500"
         height="600"
       />
       <div>
-        <p>{props.description}</p>
+        <p>{productInfo.description}</p>
       </div>
-      <p>{props.rating}</p>
-      <p>{props.price}</p> 
+      <p>{productInfo.rating}</p>
+      <p>{productInfo.price}</p> 
     </div> 
    
   );

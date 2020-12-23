@@ -7,7 +7,7 @@ function ProductsPage(props) {
     <div>
       <h1>Here's the Product Page</h1>
       <Product
-        id={0}
+        id={1}
         title={"DummyProduct"}
         img={
           "https://columbusrealestatecoach.com/wp-content/uploads/2017/11/crash-test-dummy.jpg"

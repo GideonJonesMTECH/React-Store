@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
-import { ProductDetails } from "./Details";
+import ProductDetails from "./Details";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
