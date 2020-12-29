@@ -1,6 +1,7 @@
 const initialState = { 
     products: [],
-    cart: [] 
+    cart: [],
+    itemCount: 0
 };
 
 export const reducer = (state = initialState, action) => {
@@ -12,7 +13,8 @@ export const reducer = (state = initialState, action) => {
  if (action.type === 'ADD_TO_CART'){
      return { 
          products: state.products,
-         cart:[ ...(state.cart || []), action.item]
+         cart: [...(state.cart || []), action.item],
+         itemCount: state.itemCount+1
         }
  }
 }

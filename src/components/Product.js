@@ -52,7 +52,8 @@ function Product(props){
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch({ 
+    addToCart: (id) => 
+    dispatch({ 
       type: "ADD_TO_CART",
       item: id 
     }),

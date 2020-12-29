@@ -1,13 +1,11 @@
 //node modules
-import { Component } from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux"
 //styling
 import "../App.css";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 
-export class Header extends Component {
-  render() {
+export default function Header(props){
     return (
       <div>
         <Navbar bg="light" variant="light">
@@ -35,8 +33,7 @@ export class Header extends Component {
             <Button variant="outline-info">Search</Button>
           </Form>
         </Navbar>
-        
       </div>
     );
-  }
+  
 }

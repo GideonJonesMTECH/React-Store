@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { Row } from 'react-bootstrap';
 
 function ProductsPage(props) {
-  console.log(props.products)
-  console.log(props.cart)
+  
   return (
     <div>
       <Row>
