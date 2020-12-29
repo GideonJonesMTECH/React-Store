@@ -1,10 +1,10 @@
-import { Product } from "./Product";
+import Product  from "./Product";
 import { connect } from "react-redux";
-
-import { Container, Row, Col} from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 function ProductsPage(props) {
   console.log(props.products)
+  console.log(props.cart)
   return (
     <div>
       <Row>
@@ -29,7 +29,10 @@ function ProductsPage(props) {
 }
 
 const mapStatetoProps = (state) => {
-  return { products: state.products };
+  return { 
+    products: state.products,
+    cart: state.cart
+   };
 };
 
 export default connect(mapStatetoProps)(ProductsPage);
