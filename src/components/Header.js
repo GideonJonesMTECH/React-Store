@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import "../App.css";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 
-export default function Header(props){
+function Header(props){
     return (
       <div>
         <Navbar bg="light" variant="light">
@@ -29,11 +29,31 @@ export default function Header(props){
             </Link>
           </Nav>
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Search</Button>
+            <select name="Search" onChange = {(event) => props.onChange(event.target.value)}>
+              <option value="">All</option>
+              <option value="phone">Phones</option>
+              <option value="tv">TVs</option>
+              <option value="small-appliance">Small Appliances</option>
+              <option value="refrigerator">Refrigerators</option>
+              <option value="watch">Watches</option>
+              <option value="action-camera">Action Camera</option>
+            </select>
+
           </Form>
         </Navbar>
       </div>
     );
   
 }
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    onChange: (category) => 
+    dispatch({ 
+      type: "ON_CHANGE",
+      category: category 
+    }),
+  };
+};
+
+export default connect(null,mapDispatchtoProps)(Header);
