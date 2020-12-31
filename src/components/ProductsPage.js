@@ -12,6 +12,7 @@ function ProductsPage(props) {
       <Row style={{justifyContent:"center"}}>
       {props.products.map((product) => (
           <Product
+            key={product.id}
             id = {product.id}
             img = {product.img}
             title={product.title}

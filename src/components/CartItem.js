@@ -14,7 +14,7 @@ export class CartItem extends Component{
      <div className="CartItemText">
       <h3 className="CartItemTitle">{this.props.title}</h3> 
       <h3 className="CartItemPrice">${this.props.price}</h3>
-      <label for="Quantity">Quantity:</label>
+      <label htmlFor="Quantity">Quantity:</label>
       <select name="Quantity">
        <option value="1">1</option>
        <option value="2">2</option>

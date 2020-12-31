@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 function Cart(props) {
   let cartItems = [];
 
-  props.cart.forEach((id) => {
+  props.cart.map((id) => {
     let item = props.products.filter((product) => product.id == id);
     cartItems.push(item[0]);
   });
