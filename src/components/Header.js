@@ -9,7 +9,7 @@ function Header(props){
     return (
       <div>
         <Navbar bg="light" variant="light">
-          <Navbar.Brand href="#home">E-commerce Store</Navbar.Brand>
+          <Navbar.Brand>E-commerce Store</Navbar.Brand>
           <Nav className="mr-auto">
             <Link to="/home" className="item col-10">
               Home

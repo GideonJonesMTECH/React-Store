@@ -2,8 +2,9 @@ import React from "react";
 import { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import ProductDetails from "./Details";
-import  ProductsPage  from "./ProductsPage";
-import  Cart  from "./Cart";
+import ProductsPage  from "./ProductsPage";
+import Cart  from "./Cart";
+import ConfirmationPage from "./ConfirmationPage";
 
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,6 +24,7 @@ export class Root extends Component {
               <Route exact path="/home" component={ProductsPage}/>
               <Route path="/Cart" component={Cart} />
               <Route path="/ProductDetails/:id" component={ProductDetails} />
+              <Route path="/Confirmation" component={ConfirmationPage} />
             </Switch>
             <Footer />
           </div>

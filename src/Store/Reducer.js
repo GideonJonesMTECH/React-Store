@@ -1,13 +1,18 @@
 const initialState = { 
     products: [],
-    cart: []
+    cart: [],
+    filteredProducts: []
 };
 
 export const reducer = (state = initialState, action) => {
 
     
  if (action.type === 'FETCH_POST_SUCCESS'){
-     return { products :  action.products};
+     return {
+        products:  action.products,
+        cart: state.cart,
+        filteredProducts: state.filteredProducts
+    };
  }
 
  if (action.type === 'ADD_TO_CART'){
@@ -15,6 +20,7 @@ export const reducer = (state = initialState, action) => {
      return { 
          products: state.products,
          cart: [...(state.cart || []), action.item],
+         filteredProducts: state.filteredProducts
         }
  }
 
@@ -23,7 +29,8 @@ export const reducer = (state = initialState, action) => {
      console.log(tempCart)
      return{
         products: state.products,
-        cart: tempCart
+        cart: tempCart,
+        filteredProducts: state.filteredProducts
      }
  }
 
@@ -36,5 +43,13 @@ export const reducer = (state = initialState, action) => {
          filteredProducts: filteredProducts
      }
  }
+
+ if(action.type === 'CLEAR_CART'){
+    return {
+        products: state.products,
+        cart: action.cart,
+        filteredProducts: state.filteredProducts
+    }
+}
 
 }
