@@ -4,6 +4,7 @@ import { render } from "@testing-library/react";
 
 function Cart(props) {
   let cartItems = [];
+  
   if (props.cart != undefined){
     if (props.cart.length > 0){
       console.log(props.cart)

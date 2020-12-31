@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
      console.log(tempCart)
      return{
         products: state.products,
-        cart: [tempCart]
+        cart: tempCart
      }
  }
 
