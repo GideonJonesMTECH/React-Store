@@ -1,7 +1,6 @@
-import {Component} from 'react';
+import { connect } from "react-redux";
 
-export class CartItem extends Component{
- render(){
+function CartItem(props){
   return(
    <div>
      <img style={{
@@ -9,27 +8,30 @@ export class CartItem extends Component{
       height: 200,
       width: 200
       }}
-      src={this.props.img}>
+      src={props.img}>
      </img>
      <div className="CartItemText">
-      <h3 className="CartItemTitle">{this.props.title}</h3> 
-      <h3 className="CartItemPrice">${this.props.price}</h3>
+      <h3 className="CartItemTitle">{props.title}</h3> 
+      <h3 className="CartItemPrice">${props.price}</h3>
       <label htmlFor="Quantity">Quantity:</label>
       <select name="Quantity">
-       <option value="1">1</option>
-       <option value="2">2</option>
-       <option value="3">3</option>
-       <option value="4">4</option>
-       <option value="5">5</option>
-       <option value="6">6</option>
-       <option value="7">7</option>
-       <option value="8">8</option>
-       <option value="9">9</option>
-       <option value="10">10</option>
+       <option value="1">{props.quantity}</option>
       </select>
-      <button>Remove</button>
+      <button onClick={() => props.removeItem(props.id)}>Remove</button>
      </div>
    </div>
   );
  }
-}
+
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    removeItem: (itemId) => 
+    dispatch({ 
+      type: "REMOVE_ITEM",
+      id: itemId
+    }),
+  };
+};
+
+export default connect(null,mapDispatchtoProps)(CartItem);

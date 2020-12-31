@@ -25,7 +25,7 @@ function Product(props){
         <span className="productRating">{props.rating} / 5</span>
         <h5 className="productPrice">${props.price}</h5>
         <span></span>
-        <button onClick={() => props.addToCart(props.id)}>
+        <button onClick={() => props.addToCart([props.img, props.title, props.price, 1, props.id])}>
           Add to Cart
         </button>
         <Switch>
@@ -52,10 +52,10 @@ function Product(props){
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    addToCart: (id) => 
+    addToCart: (item) => 
     dispatch({ 
       type: "ADD_TO_CART",
-      item: id 
+      item: item 
     }),
   };
 };

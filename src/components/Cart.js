@@ -1,38 +1,28 @@
-import { CartItem } from "./CartItem";
+import  CartItem  from "./CartItem";
 import { connect } from "react-redux";
 
 function Cart(props) {
   let cartItems = [];
+  let reRender = 
 
-  props.cart.map((id) => {
-    let item = props.products.filter((product) => product.id == id);
-    cartItems.push(item[0]);
-  });
-
-  console.log(cartItems)
-
+  if (props.cart.length > 0){
+    cartItems = props.cart.map((item) => (
+      <CartItem img={item[0]} title={item[1]} price={item[2]} quantity={item[3]} id={item[4]}/>
+    ));
+  } else {
+    cartItems = [];
+  }
   return (
     <div>
       <h1>This is the Cart Page. Give me your money</h1>
-      {cartItems.map((item) => (
-        <CartItem
-          id={item.id}
-          img={item.img}
-          title={item.title}
-          rating={item.rating}
-          price={item.price}
-          description={item.description}
-          category={item.category}
-        />
-      ))}
+      {cartItems}
     </div>
   );
 }
 
 const mapStatetoProps = (state) => {
   return {
-    products: state.products,
-    cart: state.cart,
+    cart: state.cart
   };
 };
 
