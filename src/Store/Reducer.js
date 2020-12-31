@@ -25,7 +25,7 @@ export const reducer = (state = initialState, action) => {
  }
 
  if(action.type === 'REMOVE_ITEM'){
-     const tempCart = state.cart.filter((item) => item[4] !== action.id)
+     const tempCart = state.cart.filter((item) => item.id !== action.id)
      console.log(tempCart)
      return{
         products: state.products,

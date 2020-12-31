@@ -25,7 +25,7 @@ function Product(props){
         <span className="productRating">{props.rating} / 5</span>
         <h5 className="productPrice">${props.price}</h5>
         <span></span>
-        <button onClick={() => props.addToCart([props.img, props.title, props.price, 1, props.id])}>
+        <button onClick={() => props.addToCart({img: props.img, title:props.title, price:props.price, quantity: 1, id: props.id})}>
           Add to Cart
         </button>
         <Switch>
