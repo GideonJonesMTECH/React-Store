@@ -1,13 +1,11 @@
 import Product  from "./Product";
 import { connect } from "react-redux";
 import { Row } from 'react-bootstrap';
-import fetchPosts from '../Api'
-import React, { useState,useEffect } from "react";
 
 
 
 function ProductsPage(props) {
-
+  
   return (
     <div>
       <Row>

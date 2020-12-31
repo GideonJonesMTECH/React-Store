@@ -11,6 +11,7 @@ export const reducer = (state = initialState, action) => {
  }
 
  if (action.type === 'ADD_TO_CART'){
+     console.log(action.item)
      return { 
          products: state.products,
          cart: [...(state.cart || []), action.item],
