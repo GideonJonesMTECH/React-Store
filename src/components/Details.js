@@ -1,11 +1,21 @@
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { Row, Col} from 'react-bootstrap';
+import fetchPosts from '../Api';
 
 function ProductDetails(props) {
     let { id } = useParams();
-    const product = props.products.filter((product) => product.id == id);
-    const productInfo = product[0];
+    let product = [];
+    let productInfo = [];
+    if (props.products === undefined || productInfo === undefined){
+      fetchPosts();
+    }
+    else {
+      product = props.products.filter((product) => product.id == id); 
+      productInfo = product[0];
+    }
+
+   
   return (
     <div>
       <p>{productInfo.category}</p>
@@ -33,8 +43,10 @@ function ProductDetails(props) {
   );
 }
 
-const mapStatetoProps = (state) => {
-  return { products: state.products };
+const mapStatetoProps = ({ products } = {}) => {
+  return {
+    products
+  };
 };
 
 const mapDispatchtoProps = (dispatch) => {
