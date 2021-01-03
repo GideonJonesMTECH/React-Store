@@ -8,7 +8,8 @@ function CartItem(props){
       height: 200,
       width: 200
       }}
-      src={props.img}>
+      src={props.img}
+      alt={props.title}>
      </img>
      <div className="CartItemText">
       <h3 className="CartItemTitle">{props.title}</h3> 

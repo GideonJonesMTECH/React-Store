@@ -9,7 +9,7 @@ import fetchPosts from "./Api"
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { reducer } from "./Store/Reducer";
-import { createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk'
 
 import "./index.css"

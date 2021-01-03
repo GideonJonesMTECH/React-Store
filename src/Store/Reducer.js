@@ -36,7 +36,7 @@ export const reducer = (state = initialState, action) => {
 
  if(action.type === 'ON_CHANGE'){
      console.log(action.category)
-     const filteredProducts = state.products.filter((item) => item.category == action.category);
+     const filteredProducts = state.products.filter((item) => item.category === action.category);
      return {
          products: state.products,
          cart: state.cart,

@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 import { Row, Col} from 'react-bootstrap';
 import fetchPosts from '../Api';
 
+import "../stars.css";
 function ProductDetails(props) {
     let { id } = useParams();
     let product = [];
     let productInfo = [];
+    let roundedRating = 0;
     if (props.products === undefined || productInfo === undefined){
       fetchPosts();
     }
     else {
       product = props.products.filter((product) => product.id == id); 
       productInfo = product[0];
+      roundedRating = (productInfo.rating / 5 * 10) * 10;
     }
 
    
@@ -32,10 +35,22 @@ function ProductDetails(props) {
         <Col>
           <h5>${productInfo.price}</h5>
           <h6>{productInfo.description}</h6>
-          <p>{productInfo.rating} / 5</p>
-          <button onClick={() => props.addToCart([productInfo.img, productInfo.title, productInfo.price, 1, productInfo.id])}>
-            Add to Cart
-          </button>
+          <Row>
+            <div class= "rating">
+              <h6>{productInfo.rating} / 5</h6>
+              <div class="stars">
+                <div class="stars-outer">
+                  <div class="stars-inner" style={{width: `${roundedRating}%`}}>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Row>
+          <Row>
+            <button onClick={() => props.addToCart([productInfo.img, productInfo.title, productInfo.price, 1, productInfo.id])}>
+              Add to Cart
+            </button>
+          </Row>
         </Col>
       </Row>
     </div> 

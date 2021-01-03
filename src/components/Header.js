@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 //styling
 import "../App.css";
-import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
+import { Navbar, Nav, Form } from "react-bootstrap";
 
 function Header(props){
     return (
@@ -24,6 +24,7 @@ function Header(props){
                   }}
                   className="cart"
                   src={"https://cdn0.iconfinder.com/data/icons/ecommerce-57/100/Ecommerce_RTE-03-512.png"}
+                  alt="CartImg"
                 />
               </div>
             </Link>

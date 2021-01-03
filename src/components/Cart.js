@@ -21,7 +21,7 @@ function Cart(props) {
           id={item.id}
         />
       ));
-    } else if (props.cart.length == 0) {
+    } else if (props.cart.length === 0) {
       cartItems = [];
     }
   }

@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function Product(props){
+  let roundedRating = (props.rating / 5 * 10) * 10;
     return (
       <div className="product w-25 p-3" style={{textAlign:"center", margin: 20}}>
         <Link to={`/ProductDetails/${props.id}`} className="item">
@@ -22,7 +23,12 @@ function Product(props){
           </div>
         </Link>
         <h4 className="productTitle">{props.title}</h4>
-        <span className="productRating">{props.rating} / 5</span>
+        <div className="stars">
+          <div className="stars-outer">
+            <div className="stars-inner" style={{width: `${roundedRating}%`}}>
+            </div>
+          </div>
+        </div>
         <h5 className="productPrice">${props.price}</h5>
         <span></span>
         <button onClick={() => props.addToCart({img: props.img, title:props.title, price:props.price, quantity: 1, id: props.id})}>
