@@ -39,8 +39,9 @@ function Cart(props) {
         </Link>
         </div>
       </Row>
-
-      {cartItems}
+      <div style={{display: "flex", flex: 1, justifyContent: "space-around", flexDirection: "column"}}>
+        {cartItems}
+      </div>
     </div>
   );
 }
