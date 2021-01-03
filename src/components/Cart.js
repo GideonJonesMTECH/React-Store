@@ -28,12 +28,16 @@ function Cart(props) {
 
   return (
     <div>
-      <Row>
+      <Row style={{ display: "flex", justifyContent: "space-between", flex: 1}}>
         <h1>Shopping Cart</h1>
+        <div style={{ display: "flex", flex: 1, justifyContent: "space-around", alignContent: "center"}}>
         <Link to="/Confirmation">
           <Button onClick={() => props.clearCart()}>Order Now!</Button>
         </Link>
-        <Button onClick={() => props.clearCart()}>Clear Cart</Button>
+        <Link>
+          <Button onClick={() => props.clearCart()}>Clear Cart</Button>
+        </Link>
+        </div>
       </Row>
 
       {cartItems}

@@ -15,6 +15,7 @@ function Product(props){
               height: "100%",
               width: "auto",
               overflow: "hidden",
+              paddingRight: 1
             }}
               className="productImg"
               src={props.img}
