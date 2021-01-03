@@ -28,8 +28,8 @@ function Cart(props) {
 
   return (
     <div>
-      <h1>This is the Cart Page. Give me your money</h1>
       <Row>
+        <h1>Shopping Cart</h1>
         <Link to="/Confirmation">
           <Button onClick={() => props.clearCart()}>Order Now!</Button>
         </Link>

@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 function CartItem(props){
   return(
    <div>
-     <img style={{
-      resizeMode: "cover",
-      height: 200,
-      width: 200
-      }}
-      src={props.img}
-      alt={props.title}>
-     </img>
+    <div style={{height:200, width:200, textAlign:"center"}}>
+      <img 
+        style={{
+          resizeMode: "contain",
+          height: "100%",
+          overflow: "hidden",
+          width: "auto",
+        }}
+        className="productImg"
+        alt={props.title}
+        src={props.img}
+      />
+    </div>
      <div className="CartItemText">
       <h3 className="CartItemTitle">{props.title}</h3> 
       <h3 className="CartItemPrice">${props.price}</h3>
