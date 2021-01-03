@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Product(props){
   let roundedRating = (props.rating / 5 * 10) * 10;
     return (
-      <div className="product w-25 p-3" style={{textAlign:"center", margin: 20}}>
+      <div className="product w-25 p-3" style={{textAlign:"center", margin: 20, justifyContent:"center"}}>
         <Link to={`/ProductDetails/${props.id}`} className="item">
           <div style={{height:200, width:200, textAlign:"center"}}>
             <img style={{

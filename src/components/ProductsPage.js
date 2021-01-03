@@ -43,7 +43,7 @@ function ProductsPage(props) {
       <Row>
         <h1>E-Commerce Store</h1>
       </Row>
-      <Row style={{ justifyContent: "center" }}>{products}</Row>
+      <Row style={{flex: 1, justifyContent: "space-around"}}>{products}</Row>
     </div>
   );
 }
