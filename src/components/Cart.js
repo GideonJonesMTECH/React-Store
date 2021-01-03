@@ -28,7 +28,7 @@ function Cart(props) {
 
   return (
     <div>
-      <Row style={{ display: "flex", justifyContent: "space-between", flex: 1}}>
+      <Row style={{ display: "flex", justifyContent: "space-between", flex: 1, alignItems: "center"}}>
         <h1>Shopping Cart</h1>
         <div style={{ display: "flex", flex: 1, justifyContent: "space-around", alignContent: "center"}}>
         <Link to="/Confirmation">

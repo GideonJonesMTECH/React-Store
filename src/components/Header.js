@@ -10,7 +10,7 @@ function Header(props){
       <div>
         <Navbar bg="light" variant="light">
           <Navbar.Brand> <Link to="/home" style={{color:"black"}}>E-commerce Store</Link></Navbar.Brand>
-          <Nav className="mr-auto" style={{flex: 1, justifyContent: "space-between"}}>
+          <Nav className="mr-auto" style={{flex: 1, justifyContent: "space-between", alignItems: "center"}}>
             <Link to="/home" className="item col-10">
               Home
             </Link>
