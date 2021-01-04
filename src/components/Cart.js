@@ -2,7 +2,8 @@ import CartItem from "./CartItem";
 import { connect } from "react-redux";
 import fetchPosts from "../Api";
 import { Link } from "react-router-dom";
-import { Row, Button } from "react-bootstrap";
+import { Row, Button, Col, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Cart(props) {
   let cartItems = [];
@@ -27,26 +28,53 @@ function Cart(props) {
   }
 
   return (
-    <div>
-      <Row style={{ display: "flex", justifyContent: "space-between", flex: 1, alignItems: "center"}}>
-        <h1>Shopping Cart</h1>
-        <div style={{ display: "flex", flex: 1, justifyContent: "space-around", alignContent: "center"}}>
-        <Link to="/Confirmation">
-          <Button onClick={() => props.clearCart()}>Order Now!</Button>
-        </Link>
-        <Link to="/Cart">
-          <Button onClick={() => props.clearCart()}>Clear Cart</Button>
-        </Link>
+    <Container style={{ display: "flex" }}>
+      <Col className="col-9">
+        <Row>
+          <h1>Shopping Cart</h1>
+        </Row>
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            justifyContent: "space-around",
+            flexDirection: "column",
+          }}
+        >
+          {cartItems}
         </div>
-      </Row>
-      <div style={{display: "flex", flex: 1, justifyContent: "space-around", flexDirection: "column"}}>
-        {cartItems}
-      </div>
-    </div>
+      </Col>
+      <Col
+        className="col-3"
+        style={{
+          border: "1px solid black",
+          maxHeight: 450,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <h3>Your Order will be: </h3>
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            alignContent: "center",
+          }}
+        >
+          <Link to="/Confirmation">
+            <Button onClick={() => props.clearCart()}>Order Now!</Button>
+          </Link>
+          <Link to="/Cart">
+            <Button onClick={() => props.clearCart()}>Clear Cart</Button>
+          </Link>
+        </div>
+      </Col>
+    </Container>
   );
 }
 
-const mapStatetoProps = ({cart} = {}) => {
+const mapStatetoProps = ({ cart } = {}) => {
   return {
     cart: cart,
   };
