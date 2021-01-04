@@ -9,9 +9,9 @@ function Header(props){
     return (
       <div>
         <Navbar bg="light" variant="light">
-          <Navbar.Brand> <Link to="/home" style={{color:"black"}}>E-commerce Store</Link></Navbar.Brand>
+          <Navbar.Brand> <Link to="/" style={{color:"black"}}>E-commerce Store</Link></Navbar.Brand>
           <Nav className="mr-auto" style={{flex: 1, justifyContent: "space-between", alignItems: "center"}}>
-            <Link to="/home" className="item col-10">
+            <Link to="/" className="item col-10">
               Home
             </Link>
             <Link to="/Cart" className="item col-2">

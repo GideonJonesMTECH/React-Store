@@ -21,7 +21,7 @@ export class Root extends Component {
           <div className="col col-xs-offset-1">
             <Header />
             <Switch>
-              <Route exact path="/home" component={ProductsPage}/>
+              <Route exact path="/" component={ProductsPage}/>
               <Route path="/Cart" component={Cart} />
               <Route path="/ProductDetails/:id" component={ProductDetails} />
               <Route path="/Confirmation" component={ConfirmationPage} />
