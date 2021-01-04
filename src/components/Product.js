@@ -32,7 +32,7 @@ function Product(props){
         </div>
         <h5 className="productPrice">${props.price}</h5>
         <span></span>
-        <button onClick={() => props.addToCart({img: props.img, title:props.title, price:props.price, quantity: 1, id: props.id})}>
+        <button onClick={() => {props.addToCart({img: props.img, title:props.title, price:props.price, id: props.id})}}>
           Add to Cart
         </button>
         <Switch>
@@ -48,6 +48,7 @@ function Product(props){
                 rating={props.rating}
                 description={props.description}
                 category={props.category}
+                quantity = {props.quantity}
               />
             )}
           />

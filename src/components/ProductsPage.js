@@ -22,6 +22,7 @@ function ProductsPage(props) {
         price={product.price}
         description={product.description}
         category={product.category}
+        quantity = {product.quantity}
       />
     ));
   } else {
@@ -35,6 +36,7 @@ function ProductsPage(props) {
         price={product.price}
         description={product.description}
         category={product.category}
+        quantity = {product.quantity}
       />
     ));
   }
