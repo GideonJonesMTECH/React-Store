@@ -16,7 +16,21 @@ export const reducer = (state = initialState, action) => {
  }
 
  if (action.type === 'ADD_TO_CART'){
-     console.log(action.item)
+     if(state.cart.filter(item => item.id == action.item.id).length > 0){
+         console.log("yes")
+        let item = action.item
+        item.quantity+=1;
+        let tempCart = state.cart.filter(item => item.id !== action.item.id);
+        tempCart.push(item)
+        console.log(tempCart)
+        return{
+            products: state.products,
+            cart: [...tempCart],
+            filteredProducts: state.filteredProducts
+        }
+     }
+     
+    
      return { 
          products: state.products,
          cart: [...(state.cart || []), action.item],
@@ -26,7 +40,6 @@ export const reducer = (state = initialState, action) => {
 
  if(action.type === 'REMOVE_ITEM'){
      const tempCart = state.cart.filter((item) => item.id !== action.id)
-     console.log(tempCart)
      return{
         products: state.products,
         cart: tempCart,

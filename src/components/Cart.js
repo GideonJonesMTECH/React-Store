@@ -34,7 +34,7 @@ function Cart(props) {
         <Link to="/Confirmation">
           <Button onClick={() => props.clearCart()}>Order Now!</Button>
         </Link>
-        <Link>
+        <Link to="/Cart">
           <Button onClick={() => props.clearCart()}>Clear Cart</Button>
         </Link>
         </div>

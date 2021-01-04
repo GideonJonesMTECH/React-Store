@@ -36,11 +36,11 @@ function ProductDetails(props) {
           <h5>${productInfo.price}</h5>
           <h6>{productInfo.description}</h6>
           <Row>
-            <div class= "rating">
+            <div className= "rating">
               <h6>{productInfo.rating} / 5</h6>
-              <div class="stars">
-                <div class="stars-outer">
-                  <div class="stars-inner" style={{width: `${roundedRating}%`}}>
+              <div className="stars">
+                <div className="stars-outer">
+                  <div className="stars-inner" style={{width: `${roundedRating}%`}}>
                   </div>
                 </div>
               </div>
