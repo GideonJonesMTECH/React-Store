@@ -38,6 +38,7 @@ function CartItem(props) {
                 }}
                 value={props.quantity}
                 onChange={(e) => {props.updateQuantity(props.id, e.target.value)}}
+                maxLength="2"
               />
             </div>
             <button onClick={() => props.removeItem(props.id)}>Remove</button>
