@@ -16,7 +16,10 @@ export const reducer = (state = initialState, action) => {
   if (action.type === "ADD_TO_CART") {
     if (state.cart.filter((item) => item.id == action.item.id).length > 0) {
       let item = state.cart.filter((item) => item.id == action.item.id)[0];
-      item.quantity+=1;
+      if (item.quantity > 98){
+          item.quantity = 99;
+      } else {item.quantity+=1}
+      
       let tempCart = state.cart.filter((item) => item.id !== action.item.id);
       tempCart.push(item);
       console.log(tempCart);
