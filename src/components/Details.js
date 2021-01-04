@@ -47,7 +47,7 @@ function ProductDetails(props) {
             </div>
           </Row>
           <Row>
-            <button onClick={() => props.addToCart({img: productInfo.img, title:productInfo.title, price:productInfo.price, quantity: 1, id: productInfo.id})}>
+            <button onClick={() => props.addToCart({img: productInfo.img, title:productInfo.title, price:productInfo.price, id: productInfo.id})}>
               Add to Cart
             </button>
           </Row>

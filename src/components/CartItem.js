@@ -32,7 +32,7 @@ function CartItem(props) {
               <input
                 style={{
                   margin: 2,
-                  width: 25,
+                  width: 30,
                   height: 25,
                   textAlign: "center",
                 }}
