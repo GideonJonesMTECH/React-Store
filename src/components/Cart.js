@@ -16,13 +16,12 @@ function Cart(props) {
   } else if (props.cart !== undefined) {
     if (props.cart.length > 0) {
       console.log(props.cart);
-      productPrice = props.cart.map(
-        (item) => (productPrice += item.price * item.quantity)
+      props.cart.map(item => 
+        productPrice += item.price * item.quantity
       );
-      productPrice = Math.round(productPrice * 100) / 100;
-      taxPrice = Math.round(productPrice * 0.0715 * 100) / 100;
-      totalPrice = productPrice + taxPrice;
 
+      taxPrice = productPrice * .0715;
+      totalPrice = taxPrice + productPrice;
       cartItems = props.cart.map((item) => (
         <CartItem
           key={item.id}
@@ -70,11 +69,9 @@ function Cart(props) {
           }}
         >
           <h4 style={{ padding: 10 }}>Your Order will be...</h4>
-          <h6>Products: ${productPrice.toFixed(2)}</h6>
-          <h6>Tax: ${taxPrice.toFixed(2)} </h6>
-          <h3 style={{ borderTop: "1px black solid" }}>
-            Total: ${totalPrice.toFixed(2)}
-          </h3>
+          <h6>Products: {productPrice.toFixed(2)}</h6>
+          <h6>Tax: {taxPrice.toFixed(2)} </h6>
+          <h3 style={{ borderTop: "1px black solid" }}>Total: {totalPrice.toFixed(2)}</h3>
           <div style={{ display: "flex" }}>
             <Link to="/Confirmation">
               <Button className="cartButton" onClick={() => props.clearCart()}>
