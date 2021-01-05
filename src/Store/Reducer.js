@@ -74,14 +74,12 @@ export const reducer = (state = initialState, action) => {
   }
 
   if (action.type === "UPDATE_QUANTITY") {
-    console.log("yes");
+
     let item = state.cart.filter((i) => i.id === action.id)[0];
+    let indexOfItem = state.cart.indexOf(item)
     item.quantity = action.quantity;
-    console.log(item);
-    let tempCart = state.cart.filter((item) => item.id !== action.id);
-    console.log(tempCart);
-    tempCart.push(item);
-    console.log(tempCart);
+    let tempCart = state.cart
+    tempCart.splice(indexOfItem,item)
     return {
       products: state.products,
       cart: [...tempCart],
