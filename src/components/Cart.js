@@ -6,6 +6,10 @@ import { Row, Button, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Cart.css";
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function Cart(props) {
   let cartItems = [];
   let totalPrice = 0;
@@ -16,11 +20,9 @@ function Cart(props) {
   } else if (props.cart !== undefined) {
     if (props.cart.length > 0) {
       console.log(props.cart);
-      props.cart.map(item => 
-        productPrice += item.price * item.quantity
-      );
+      props.cart.map((item) => (productPrice += item.price * item.quantity));
 
-      taxPrice = productPrice * .0715;
+      taxPrice = productPrice * 0.0715;
       totalPrice = taxPrice + productPrice;
       cartItems = props.cart.map((item) => (
         <CartItem
@@ -69,9 +71,11 @@ function Cart(props) {
           }}
         >
           <h4 style={{ padding: 10 }}>Your Order will be...</h4>
-          <h6>Products: {productPrice.toFixed(2)}</h6>
-          <h6>Tax: {taxPrice.toFixed(2)} </h6>
-          <h3 style={{ borderTop: "1px black solid" }}>Total: {totalPrice.toFixed(2)}</h3>
+          <h6>Products: ${numberWithCommas(productPrice.toFixed(2))}</h6>
+          <h6>Tax: ${numberWithCommas(taxPrice.toFixed(2))} </h6>
+          <h3 style={{ borderTop: "1px black solid" }}>
+            Total: ${numberWithCommas(totalPrice.toFixed(2))}
+          </h3>
           <div style={{ display: "flex" }}>
             <Link to="/Confirmation">
               <Button className="cartButton" onClick={() => props.clearCart()}>
