@@ -22,7 +22,7 @@ function ProductsPage(props) {
         price={product.price}
         description={product.description}
         category={product.category}
-        quantity = {product.quantity}
+        quantity={product.quantity}
       />
     ));
   } else {
@@ -36,7 +36,7 @@ function ProductsPage(props) {
         price={product.price}
         description={product.description}
         category={product.category}
-        quantity = {product.quantity}
+        quantity={product.quantity}
       />
     ));
   }
@@ -45,7 +45,11 @@ function ProductsPage(props) {
       <Row>
         <h1>E-Commerce Store</h1>
       </Row>
-      <Row style={{flex: 1, justifyContent: "space-around"}}>{products}</Row>
+      <Row
+        style={{ flex: 1, justifyContent: "space-around", minHeight: "100vh" }}
+      >
+        {products}
+      </Row>
     </div>
   );
 }
