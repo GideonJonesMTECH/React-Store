@@ -4,20 +4,24 @@ import fetchPosts from "../Api";
 import { Link } from "react-router-dom";
 import { Row, Button, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Cart.css"
+import "../Cart.css";
 
 function Cart(props) {
   let cartItems = [];
   let totalPrice = 0;
+  let productPrice = 0;
+  let taxPrice = 0;
   if (props.cart === undefined) {
     fetchPosts();
   } else if (props.cart !== undefined) {
     if (props.cart.length > 0) {
       console.log(props.cart);
-      totalPrice = props.cart.map(
-        (item) => (totalPrice += item.price * item.quantity)
+      productPrice = props.cart.map(
+        (item) => (productPrice += item.price * item.quantity)
       );
-      totalPrice = (totalPrice * 100) / 100
+      productPrice = Math.round(productPrice * 100) / 100;
+      taxPrice = Math.round(productPrice * 0.0715 * 100) / 100;
+      totalPrice = productPrice + taxPrice;
 
       cartItems = props.cart.map((item) => (
         <CartItem
@@ -35,7 +39,7 @@ function Cart(props) {
   }
 
   return (
-    <Container style={{ display: "flex" }}>
+    <Container style={{ display: "flex", minHeight: "100vh" }}>
       <Col className="col-9">
         <Row>
           <h1>Shopping Cart</h1>
@@ -55,18 +59,32 @@ function Cart(props) {
         className="col-3"
         style={{
           border: "1px solid black",
-          maxHeight: 250,
+          maxHeight: 350,
         }}
       >
-        <Container style={{ display: "flex", flexDirection: "column" }}>
-          <h3>Your Order will be </h3>
-          <div style={{padding: 20}}>Total: {totalPrice}</div>
-          <div style={{display: "flex"}}>
+        <Container
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "left",
+          }}
+        >
+          <h4 style={{ padding: 10 }}>Your Order will be...</h4>
+          <h6>Products: ${productPrice.toFixed(2)}</h6>
+          <h6>Tax: ${taxPrice.toFixed(2)} </h6>
+          <h3 style={{ borderTop: "1px black solid" }}>
+            Total: ${totalPrice.toFixed(2)}
+          </h3>
+          <div style={{ display: "flex" }}>
             <Link to="/Confirmation">
-              <Button className="cartButton" onClick={() => props.clearCart()}>Order Now!</Button>
+              <Button className="cartButton" onClick={() => props.clearCart()}>
+                Order Now!
+              </Button>
             </Link>
             <Link to="/Cart">
-              <Button className="cartButton" onClick={() => props.clearCart()}>Clear Cart</Button>
+              <Button className="cartButton" onClick={() => props.clearCart()}>
+                Clear Cart
+              </Button>
             </Link>
           </div>
         </Container>
