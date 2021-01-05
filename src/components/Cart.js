@@ -4,14 +4,21 @@ import fetchPosts from "../Api";
 import { Link } from "react-router-dom";
 import { Row, Button, Col, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../Cart.css"
 
 function Cart(props) {
   let cartItems = [];
+  let totalPrice = 0;
   if (props.cart === undefined) {
     fetchPosts();
   } else if (props.cart !== undefined) {
     if (props.cart.length > 0) {
       console.log(props.cart);
+      totalPrice = props.cart.map(
+        (item) => (totalPrice += item.price * item.quantity)
+      );
+      totalPrice = (totalPrice * 100) / 100
+
       cartItems = props.cart.map((item) => (
         <CartItem
           key={item.id}
@@ -48,27 +55,21 @@ function Cart(props) {
         className="col-3"
         style={{
           border: "1px solid black",
-          maxHeight: 450,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
+          maxHeight: 250,
         }}
       >
-        <h3>Your Order will be: </h3>
-        <div
-          style={{
-            display: "flex",
-            flex: 1,
-            alignContent: "center",
-          }}
-        >
-          <Link to="/Confirmation">
-            <Button onClick={() => props.clearCart()}>Order Now!</Button>
-          </Link>
-          <Link to="/Cart">
-            <Button onClick={() => props.clearCart()}>Clear Cart</Button>
-          </Link>
-        </div>
+        <Container style={{ display: "flex", flexDirection: "column" }}>
+          <h3>Your Order will be </h3>
+          <div style={{padding: 20}}>Total: {totalPrice}</div>
+          <div style={{display: "flex"}}>
+            <Link to="/Confirmation">
+              <Button className="cartButton" onClick={() => props.clearCart()}>Order Now!</Button>
+            </Link>
+            <Link to="/Cart">
+              <Button className="cartButton" onClick={() => props.clearCart()}>Clear Cart</Button>
+            </Link>
+          </div>
+        </Container>
       </Col>
     </Container>
   );
