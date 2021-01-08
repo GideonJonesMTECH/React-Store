@@ -2,6 +2,7 @@ const initialState = {
   products: [],
   cart: [],
   filteredProducts: [],
+  user: "",
 };
 
 export const reducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ export const reducer = (state = initialState, action) => {
       products: action.products,
       cart: state.cart,
       filteredProducts: state.filteredProducts,
+      user: state.user,
     };
   }
 
@@ -40,6 +42,7 @@ export const reducer = (state = initialState, action) => {
         products: state.products,
         cart: [...(state.cart || []), item],
         filteredProducts: state.filteredProducts,
+        user: state.user,
       };
     }
   }
@@ -50,6 +53,7 @@ export const reducer = (state = initialState, action) => {
       products: state.products,
       cart: tempCart,
       filteredProducts: state.filteredProducts,
+      user: state.user,
     };
   }
 
@@ -62,6 +66,7 @@ export const reducer = (state = initialState, action) => {
       products: state.products,
       cart: state.cart,
       filteredProducts: filteredProducts,
+      user: state.user,
     };
   }
 
@@ -70,20 +75,30 @@ export const reducer = (state = initialState, action) => {
       products: state.products,
       cart: action.cart,
       filteredProducts: state.filteredProducts,
+      user: state.user,
     };
   }
 
   if (action.type === "UPDATE_QUANTITY") {
-
     let item = state.cart.filter((i) => i.id === action.id)[0];
-    let indexOfItem = state.cart.indexOf(item)
+    let indexOfItem = state.cart.indexOf(item);
     item.quantity = action.quantity;
-    let tempCart = state.cart
-    tempCart.splice(indexOfItem,item)
+    let tempCart = state.cart;
+    tempCart.splice(indexOfItem, item);
     return {
       products: state.products,
       cart: [...tempCart],
       filteredProducts: state.filteredProducts,
+      user: state.user,
+    };
+  }
+
+  if (action.type === "LOGIN") {
+    return {
+      products: state.products,
+      cart: state.cart,
+      filteredProducts: state.filteredProducts,
+      user: action.user,
     };
   }
 };
