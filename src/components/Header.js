@@ -7,9 +7,6 @@ import { Navbar, Nav, Form } from "react-bootstrap";
 import fetchPosts from "../Api";
 
 function Header(props) {
-  if (props.cart === undefined) {
-    fetchPosts();
-  }
   return (
     <div>
       <Navbar bg="light" variant="light">
@@ -44,7 +41,6 @@ function Header(props) {
                 }
                 alt="CartImg"
               />
-              <span>({props.cart.length})</span>
             </div>
           </Link>
         </Nav>
@@ -77,11 +73,4 @@ const mapDispatchtoProps = (dispatch) => {
   };
 };
 
-const mapStatetoProps = ({ cart } = {}) => {
-  return {
-    cart: cart,
-  };
-};
-
-
-export default connect(mapStatetoProps, mapDispatchtoProps)(Header);
+export default connect(null, mapDispatchtoProps)(Header);
