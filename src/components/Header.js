@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 //styling
 import "../App.css";
 import { Navbar, Nav, Form } from "react-bootstrap";
+import fetchPosts from "../Api";
 
 function Header(props) {
   return (
